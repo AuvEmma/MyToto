@@ -1,5 +1,7 @@
 'use strict'
-require('dotenv').config();
+if(process.env.ENVIRONMENT !== 'production'){
+  require('dotenv').config();
+}
 const express      = require('express');
 const logger       = require('morgan');
 const path         = require('path');
