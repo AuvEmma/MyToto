@@ -30,9 +30,9 @@ NYC Public Toilet Finder
 
 #### Wireframes
 
-![](public/CoverPage.jpg)
+![](public/img/CoverPage.jpg)
 
-![](public/HomePage.jpg)
+![](public/img/HomePage.jpg)
 
 #### Timeline
 
