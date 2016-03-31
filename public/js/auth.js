@@ -1,14 +1,14 @@
 const $ = require('jquery');
 
 module.exports = {
-  login(email, pass, cb) {
+  login(email, password, cb) {
     cb = arguments[arguments.length - 1]
     if (localStorage.token) {
       if (cb) cb(true)
       this.onChange(true)
       return
     }
-    loginRequest(email, pass, (res) => {
+    loginRequest(email, password, (res) => {
       if (res.authenticated) {
         localStorage.token = res.token
         if (cb) cb(true)
@@ -37,23 +37,14 @@ module.exports = {
   onChange() {}
 }
 
-
-
-
-
-
-
-
-
-
-function loginRequest(email, pass, cb) {
+function loginRequest(email, password, cb) {
 
   var loginCreds = {
     email: email,
-    password: pass
+    password: password
   }
 
-  $.post('/api/guests/login', loginCreds)
+  $.post('guests/login', loginCreds)
     .done((data) => {
       console.log(data);
       cb({

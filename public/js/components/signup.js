@@ -1,19 +1,20 @@
 const React = require('react');
 const auth = require('../auth');
+const $     = require('jquery');
 
 const Signup = React.createClass({
 
 handleSubmit : function(event) {
     event.preventDefault()
     const email = this.refs.email.value
-    const pass  = this.refs.pass.value
+    const password  = this.refs.password.value
 
     const signupInfo = {
       email: email,
       password: password
     }
 
-    $.post('/users', signupInfo)
+    $.post('/guests', signupInfo)
       .done((data) => {
         console.log(data);
         if(data) {
@@ -36,7 +37,7 @@ handleSubmit : function(event) {
               <label htmlFor="inputEmail" >Email address</label>
               <input ref="email" type="email" id="inputEmail" className="form-control"  placeholder="Email address" autofocus />
               <label htmlFor="inputPassword" className="sr-only">Password</label>
-              <input ref="pass"  type="password" id="inputPassword" placeholder="Password" />
+              <input ref="password"  type="password" id="inputPassword" placeholder="Password" />
               <button type="submit" onClick={this.hideForm} className="btn waves-effect waves-light light-blue darken-4">Submit</button>
             </form>
           </aside>

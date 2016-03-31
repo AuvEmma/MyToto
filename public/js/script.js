@@ -43,39 +43,31 @@ const App = React.createClass({
   render() {
     if(this.state.loggedIn) {
       return (
-        <div>
-          <div className="masthead">
-          <Link to ="/" id="homepageLogo"><h1 className="text-muted">MyToto</h1></Link>
-          <nav className="light-blue darken-4">
-            <ul className="nav nav-justified light-blue accent-3">
-              <li><Link to="/dashboard">Dashboard</Link></li>
-              <li><Link to="/create">Create</Link></li>
-              <li><Link to="/find">Find</Link></li>
-              <li><Link to="/friends">Friends</Link></li>
-              <li><Link to="/events">My Events</Link></li>
-              <li><Link to="/profile">Profile</Link></li>
-              <li><Link to="/circles">Circles</Link></li>
-              <li><Link to="/logout">Logout</Link></li>
-            </ul>
-          </nav>
+          <div>
+            <Link to ="/" ><h1>MyToto</h1></Link>
+            <nav>
+              <ul>
+                <li><Link to="/create">Create</Link></li>
+                <li><Link to="/find">Find</Link></li>
+                <li><Link to="/mytoto">Profile</Link></li>
+                <li><Link to="/logout">Logout</Link></li>
+              </ul>
+            </nav>
+            {this.props.children || <p>You are {!this.state.loggedIn && 'not'} logged in.</p>}
           </div>
-        </div>
       )
-
     } else {
       return (
         <div>
-          <div className="row">
-            <section className="col s12" style={{width: '100%', textAlign: 'center', marginTop: 70, position: 'relative'}}>
-              <section className="col s5" style={{marginLeft: '30%'}}>
-                <aside className="card-panel" style={{width: '100%', margin: 'auto', position: 'relative', marginTop: 7}}>
-                  <form onSubmit={this.handleSubmit}>
+          <div>
+            <section>
+              <section>
+                <aside>
                     <h3>Welcome!</h3>
-                    <div className="row">
-                      <Link to="/login"><button onClick={this.hideButtons} className="btn waves-effect waves-light col s6 light-blue darken-4">Log in</button></Link>
-                      <Link to="/signup"><button onClick={this.hideButtons} className="btn waves-effect waves-light col s6 light-blue darken-4">Signup</button></Link>
+                    <div>
+                      <Link to="/login"><button className="btn waves-effect waves-light col s6 light-blue darken-4">Log in</button></Link>
+                      <Link to="/signup"><button className="btn waves-effect waves-light col s6 light-blue darken-4">Signup</button></Link>
                     </div>
-                  </form>
                 </aside>
               </section>
             </section>
@@ -86,8 +78,6 @@ const App = React.createClass({
     }
   }
 })
-
-
 
 
 

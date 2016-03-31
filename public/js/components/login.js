@@ -14,9 +14,9 @@ const Login = React.createClass({
     event.preventDefault()
 
     const email = this.refs.email.value
-    const pass = this.refs.pass.value
+    const password = this.refs.password.value
 
-    auth.login(email, pass, (loggedIn) => {
+    auth.login(email, password, (loggedIn) => {
       if (!loggedIn)
         return this.setState({ error: true })
       const { location } = this.props
@@ -39,7 +39,7 @@ const Login = React.createClass({
               <input ref="email" type="email" id="inputEmail" className="form-control"  placeholder="Email address" autofocus />
 
               <label htmlFor="inputPassword" className="sr-only">Password</label>
-              <input ref="pass" type="password" id="inputPassword" className="form-control" placeholder="Password" />
+              <input ref="password" type="password" id="inputPassword" className="form-control" placeholder="Password" />
 
               <button type="submit" className="btn waves-effect waves-light light-blue darken-4" style={{display: 'inline', width: 150, marginTop: 0}}>Login</button>
             </form>
