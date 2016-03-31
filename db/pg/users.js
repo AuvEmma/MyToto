@@ -33,9 +33,7 @@ function createUser(req, res, next) {
         db.none(`INSERT INTO users (email, password_digest)
         VALUES ($1, $2)`,
             [email, hash])
-            .then(() => {
-              next()
-            })
+            .then(next)
             .catch((err) => {
               console.log('error signing up', err.code)
               res.rows = err.code

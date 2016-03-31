@@ -3,8 +3,11 @@ const auth = require('../auth');
 const $     = require('jquery');
 
 const Signup = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.object
+  },
 
-handleSubmit : function(event) {
+  handleSubmit : function(event) {
     event.preventDefault()
     const email = this.refs.email.value
     const password  = this.refs.password.value
@@ -16,14 +19,14 @@ handleSubmit : function(event) {
     if(password === this.refs.confirmPassword.value){
       $.post('/guests', signupInfo)
       .done((data) => {
-        console.log(data);
         if(data) {
           alert('Signup Error, Email Already Exists!')
         }else {
         }
       })
       .error((error) => {
-        console.error(error);
+        console.log('Successfully signup!', error);
+        this.context.router.replace('/')
       })
     }else{
       alert('password does not match confirmPassword')
