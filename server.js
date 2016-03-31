@@ -12,6 +12,7 @@ const userRoutes   = require( path.join(__dirname, '/routes/users'));
 const guestRoutes   = require( path.join(__dirname, '/routes/guests'));
 
 const app          = express();
+// need to use process.env.PORT for heroku deployment
 const _port        = process.argv[2]|| process.env.PORT||3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
