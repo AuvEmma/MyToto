@@ -60,17 +60,11 @@ const App = React.createClass({
       return (
         <div>
           <div>
-            <section>
-              <section>
-                <aside>
-                    <h3>Welcome!</h3>
-                    <div>
-                      <Link to="/login"><button className="btn waves-effect waves-light col s6 light-blue darken-4">Log in</button></Link>
-                      <Link to="/signup"><button className="btn waves-effect waves-light col s6 light-blue darken-4">Signup</button></Link>
-                    </div>
-                </aside>
-              </section>
-            </section>
+            <h3>Welcome!</h3>
+            <div>
+              <Link to="/login"><button className="btn waves-effect waves-light col s6 light-blue darken-4">Log in</button></Link>
+              <Link to="/signup"><button className="btn waves-effect waves-light col s6 light-blue darken-4">Signup</button></Link>
+            </div>
           </div>
           {this.props.children || <p>You are {!this.state.loggedIn && 'not'} logged in.</p>}
       </div>
