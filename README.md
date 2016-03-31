@@ -34,10 +34,18 @@ NYC Public Toilet Finder
 
 ![](public/HomePage.jpg)
 
+#### Timeline
+
+| Date      | Thu 3/31              | Fri 4/1    | Sat 4/2    | Sun 4/3    | Mon 4/4         | Tue 4/5        | Wed 4/6 | Thu 4/7 | Fri 4/8 | Sat 4/9 | Sun 4/10 |
+|-----------|-----------------------|------------|------------|------------|-----------------|----------------|---------|---------|---------|---------|----------|
+| Morning   | User Story Wireframes | Home page  | Google Map | Google Map | NYC Public Data | Share Restroom |         |         | CSS     | CSS     | Test     |
+| Noon      | User Auth             | Google Map | Google Map | Google Map | Search Bar      | CRUD           |         |         | CSS     | CSS     | Test     |
+| Afternoon | Cover Page CSS        | Google Map | Google Map | Google Map | Search Bar      | CRUD           |         |         | CSS     | CSS     | Test     |
+
 #### Comments
 
 For last projects, I always spent my first on css, this time I will finish mvp first and then css.
 
 #### Future improvement
 
-May be add friends~
+May be add friends
