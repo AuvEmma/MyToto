@@ -56,7 +56,8 @@ function login(req, res, next) {
         res.status(401).json({data: "password and email do not match"})
       })
       .catch((err) => {
-        console.error(err, 'error finding user')
+        res.setHeader('test', 'test');
+        console.error(err, 'error in function login (db/pg/users.js)')
       })
 }
 
