@@ -26,6 +26,10 @@ app.use(logger('dev'));
 app.use('/guests', guestRoutes)
 app.use('/users',expressJWT({secret:secret}),userRoutes)
 
+app.get('/',(req,res)=>{
+  res.sendFile(path.join(__dirname,'public/index.html'));
+})
+
 app.get('*',(req,res)=>{
   res.sendFile(path.join(__dirname,'public/index.html'));
 })
