@@ -2,7 +2,7 @@
 const pgp = require('pg-promise')({});
 
 if(process.env.ENVIRONMENT === 'production'){
-  var cn = process.env.DATABASE_URL;
+  var cn = process.env.HEROKU_POSTGRESQL_BLUE_URL;
 }else{
   var cn = {
     host: process.env.HOST, // server name or IP address;
