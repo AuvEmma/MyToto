@@ -38,6 +38,7 @@
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-router": "^2.0.1",
+    "uglifyify": "^3.0.1",
     "watchify": "^3.7.0"
   }
 }
