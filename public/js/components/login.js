@@ -27,6 +27,7 @@ const Login = React.createClass({
         this.context.router.replace('/')
       }
     })
+    $('#myLogin').modal('hide')
   },
   render : function() {
     return (
