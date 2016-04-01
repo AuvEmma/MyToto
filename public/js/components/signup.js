@@ -41,15 +41,15 @@ const Signup = React.createClass({
             <form ref="formSignup" onSubmit={this.handleSubmit}>
               <h2>Please sign up</h2>
               <label htmlFor="inputEmail" >Email address</label>
-              <input ref="email" type="email" id="inputEmail" placeholder="Email address" autofocus />
+              <input ref="email" type="email" id="inputEmail" className="form-control" placeholder="Email address" autofocus />
 
               <label htmlFor="inputPassword">Password</label>
-              <input ref="password"  type="password" id="inputPassword" placeholder="Password" />
+              <input ref="password"  type="password" id="inputPassword" className="form-control" placeholder="Password" />
 
               <label htmlFor="confirmPassword">Confirm Password</label>
-              <input ref="confirmPassword"  type="password" id="inputPassword" placeholder="Password" />
+              <input ref="confirmPassword"  type="password" id="inputPassword" className="form-control" placeholder="Password" />
 
-              <button type="submit">Submit</button>
+              <button type="submit" className="btn">Submit</button>
             </form>
           </aside>
         </div>

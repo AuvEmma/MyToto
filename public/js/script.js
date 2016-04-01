@@ -62,8 +62,8 @@ const App = React.createClass({
           <div>
             <h3>Welcome!</h3>
             <div>
-              <Link to="/login"><button className="btn waves-effect waves-light col s6 light-blue darken-4">Log in</button></Link>
-              <Link to="/signup"><button className="btn waves-effect waves-light col s6 light-blue darken-4">Signup</button></Link>
+              <Link to="/login"><button className="btn" data-toggle="modal" data-target="#myLogin">Log in</button></Link>
+              <Link to="/signup"><button className="btn" data-toggle="modal" data-target="#mySignup">Signup</button></Link>
             </div>
           </div>
           {this.props.children || <p>You are {!this.state.loggedIn && 'not'} logged in.</p>}
