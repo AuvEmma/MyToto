@@ -32,7 +32,6 @@ const Login = React.createClass({
     return (
       <div>
       <div id="loginform" style={{width: '30%', margin: 'auto', marginTop: '10px'}}>
-          <aside className="card-panel">
             <form className="form-signin" onSubmit={this.handleSubmit}>
               <h2 className="form-signin-heading">Please Login</h2>
               <label htmlFor="inputEmail" className="sr-only">Email address</label>
@@ -41,9 +40,8 @@ const Login = React.createClass({
               <label htmlFor="inputPassword" className="sr-only">Password</label>
               <input ref="password" type="password" id="inputPassword" className="form-control" placeholder="Password" />
 
-              <button type="submit" className="btn waves-effect waves-light light-blue darken-4" style={{display: 'inline', width: 150, marginTop: 0}}>Login</button>
+              <button type="submit" className="btn" style={{display: 'inline', width: 150, marginTop: 0}}>Login</button>
             </form>
-          </aside>
           {this.state.error && (
             <p>Password and email do not match</p>
           )}
