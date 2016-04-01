@@ -48,7 +48,7 @@
 
 /* On hover, the dropdown links will turn red */
 .dropdown-menu li a:hover {
-    background-color: red !important;
+    background-color: grey !important;
 }
 
 /*Footer Styling*/
@@ -66,4 +66,24 @@ footer a {
 footer a:hover {
     color: #777;
     text-decoration: none;
+}
+
+ul{
+  list-style-type: none;
+}
+
+/* Add a dark gray background color to the modal header and center text */
+
+.modal-header,
+.modal-header h4,
+.modal-header .close {
+  background-color: #333;
+  color: white !important;
+  text-align: center;
+  font-size: 30px;
+}
+
+.modal-header,
+.modal-body {
+  padding: 40px 50px;
 }

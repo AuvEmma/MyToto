@@ -30,21 +30,40 @@ const Login = React.createClass({
   },
   render : function() {
     return (
-      <div>
-      <div id="loginform" style={{width: '30%', margin: 'auto', marginTop: '10px'}}>
-            <form className="form-signin" onSubmit={this.handleSubmit}>
-              <h2 className="form-signin-heading">Please Login</h2>
-              <label htmlFor="inputEmail" className="sr-only">Email address</label>
-              <input ref="email" type="email" id="inputEmail" className="form-control"  placeholder="Email address" autofocus />
+      <div id="myLogin" role="dialog" className="modal fade">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <button type="button" className="close" data-dismiss="modal">×</button>
 
-              <label htmlFor="inputPassword" className="sr-only">Password</label>
-              <input ref="password" type="password" id="inputPassword" className="form-control" placeholder="Password" />
+              <h4><span className="glyphicon glyphicon-lock" /> Login</h4>
+              <div id="loginform" className="modal-body">
+                <form role="form" onSubmit={this.handleSubmit}>
+                  <div className="form-group">
 
-              <button type="submit" className="btn" style={{display: 'inline', width: 150, marginTop: 0}}>Login</button>
-            </form>
-          {this.state.error && (
-            <p>Password and email do not match</p>
-          )}
+                  <label htmlFor="inputEmail" className="sr-only"><span className="glyphicon glyphicon-shopping-cart" />Email address</label>
+                  <input ref="email" type="email" id="inputEmail" className="form-control"  placeholder="Email address" autofocus />
+
+                  <label htmlFor="inputPassword" className="sr-only"><span className="glyphicon glyphicon-shopping-cart" />Password</label>
+                  <input ref="password" type="password" id="inputPassword" className="form-control" placeholder="Password" />
+
+                  <button type="submit" className="btn btn-block">Login
+                    <span className="glyphicon glyphicon-ok" />
+                  </button>
+                  </div>
+                </form>
+              <div className="modal-footer">
+                <button type="submit" className="btn btn-danger btn-default pull-left" data-dismiss="modal">
+                <span className="glyphicon glyphicon-remove" /> Cancel
+                </button>
+                <p>Need <a href="#">help?</a></p>
+              </div>
+              {this.state.error && (
+              <p>Password and email do not match</p>
+              )}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     )
