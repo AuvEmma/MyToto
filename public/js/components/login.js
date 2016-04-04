@@ -36,23 +36,29 @@ const Login = React.createClass({
           <div className="modal-content">
             <div className="modal-header">
               <button type="button" className="close" data-dismiss="modal">×</button>
-              <h4><span className="glyphicon glyphicon-lock" /> Login</h4>
+              <h4><span className="glyphicon glyphicon-heart" /> Login</h4>
             </div>
 
             <div className="modal-body" id="loginform">
               <form role="form" onSubmit={this.handleSubmit}>
 
-              <div className="form-group">
-                <label htmlFor="inputEmail"><span className="glyphicon glyphicon-shopping-cart" />Email address</label>
-                <input ref="email" type="email" id="inputEmail" className="form-control"  placeholder="Email address" autofocus />
+                <div className="input-group input-group-md col-md-6" style={{marginBottom: 10}}>
+                  <span className="input-group-addon">
+                    <span className="glyphicon glyphicon-envelope"></span>
+                  </span>
+                  <input ref="email" type="email" id="inputEmail" className="form-control"  placeholder="Email address" autofocus />
+                </div>
 
-                <label htmlFor="inputPassword"><span className="glyphicon glyphicon-shopping-cart" />Password</label>
-                <input ref="password" type="password" id="inputPassword" className="form-control" placeholder="Password" />
+                <div className="input-group input-group-md col-md-6" style={{marginBottom: 10}}>
+                  <span className="input-group-addon">
+                    <span className="glyphicon glyphicon-lock"></span>
+                  </span>
+                  <input ref="password" type="password" id="inputPassword" className="form-control" placeholder="Password" />
+                </div>
 
                 <button type="submit" className="btn btn-block">Login
                   <span className="glyphicon glyphicon-ok" />
                 </button>
-              </div>
 
               </form>
             </div>

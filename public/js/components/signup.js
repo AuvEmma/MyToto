@@ -46,6 +46,7 @@ const Signup = React.createClass({
 
             <div className="modal-body" id="signupform">
               <form role="form" ref="formSignup" onSubmit={this.handleSubmit}>
+              
                 <div className="input-group input-group-md col-md-6" style={{marginBottom: 10}}>
                   <span className="input-group-addon">
                     <span className="glyphicon glyphicon-envelope"></span>
