@@ -42,21 +42,21 @@ const Login = React.createClass({
             <div className="modal-body" id="loginform">
               <form role="form" onSubmit={this.handleSubmit}>
 
-                <div className="input-group input-group-md col-md-6" style={{marginBottom: 10}}>
+                <div className="input-group input-group-md col-md-6 col-md-offset-3" style={{marginBottom: 10}}>
                   <span className="input-group-addon">
                     <span className="glyphicon glyphicon-envelope"></span>
                   </span>
                   <input ref="email" type="email" id="inputEmail" className="form-control"  placeholder="Email address" autofocus />
                 </div>
 
-                <div className="input-group input-group-md col-md-6" style={{marginBottom: 10}}>
+                <div className="input-group input-group-md col-md-6 col-md-offset-3" style={{marginBottom: 10}}>
                   <span className="input-group-addon">
                     <span className="glyphicon glyphicon-lock"></span>
                   </span>
                   <input ref="password" type="password" id="inputPassword" className="form-control" placeholder="Password" />
                 </div>
 
-                <button type="submit" className="btn btn-block">Login
+                <button type="submit" className="btn" style={{marginTop: 10}}>Login
                   <span className="glyphicon glyphicon-ok" />
                 </button>
 

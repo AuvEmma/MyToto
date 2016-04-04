@@ -46,26 +46,26 @@ const Signup = React.createClass({
 
             <div className="modal-body" id="signupform">
               <form role="form" ref="formSignup" onSubmit={this.handleSubmit}>
-              
-                <div className="input-group input-group-md col-md-6" style={{marginBottom: 10}}>
+
+                <div className="input-group input-group-md col-md-6 col-md-offset-3" style={{marginBottom: 10}}>
                   <span className="input-group-addon">
                     <span className="glyphicon glyphicon-envelope"></span>
                   </span>
                   <input ref="email" type="email" id="inputEmail" className="form-control" placeholder="Email address"/>
                 </div>
-                <div className="input-group input-group-md col-md-6" style={{marginBottom: 10}}>
+                <div className="input-group input-group-md col-md-6 col-md-offset-3" style={{marginBottom: 10}}>
                   <span className="input-group-addon">
                     <span className="glyphicon glyphicon-lock"></span>
                   </span>
                   <input ref="password"  type="password" id="inputPassword" className="form-control" placeholder="Password" />
                 </div>
-                <div className="input-group input-group-md col-md-6" style={{marginBottom: 10}}>
+                <div className="input-group input-group-md col-md-6 col-md-offset-3" style={{marginBottom: 10}}>
                   <span className="input-group-addon">
                     <span className="glyphicon glyphicon-lock"></span>
                   </span>
                   <input ref="confirmPassword"  type="password" id="inputPassword" className="form-control" placeholder="Type your password again" />
                 </div>
-                <button type="submit" className="btn btn-block">Signup
+                <button type="submit" className="btn" style={{marginTop: 10}}>Signup
                   <span className="glyphicon glyphicon-ok" />
                 </button>
               </form>
