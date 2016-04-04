@@ -43,10 +43,10 @@ const Login = React.createClass({
               <form role="form" onSubmit={this.handleSubmit}>
 
               <div className="form-group">
-                <label htmlFor="inputEmail" className="sr-only"><span className="glyphicon glyphicon-shopping-cart" />Email address</label>
+                <label htmlFor="inputEmail"><span className="glyphicon glyphicon-shopping-cart" />Email address</label>
                 <input ref="email" type="email" id="inputEmail" className="form-control"  placeholder="Email address" autofocus />
 
-                <label htmlFor="inputPassword" className="sr-only"><span className="glyphicon glyphicon-shopping-cart" />Password</label>
+                <label htmlFor="inputPassword"><span className="glyphicon glyphicon-shopping-cart" />Password</label>
                 <input ref="password" type="password" id="inputPassword" className="form-control" placeholder="Password" />
 
                 <button type="submit" className="btn btn-block">Login
