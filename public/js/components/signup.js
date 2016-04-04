@@ -26,6 +26,7 @@ const Signup = React.createClass({
       })
       .error((error) => {
         console.log('Successfully signup!', error);
+        $(".modal-backdrop").remove();
         this.context.router.replace('/')
       })
     }else{
