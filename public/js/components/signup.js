@@ -1,36 +1,41 @@
 const React = require('react');
 const auth = require('../auth');
-const $     = require('jquery');
 
 const Signup = React.createClass({
   contextTypes: {
     router: React.PropTypes.object
   },
-
+  componentDidMount: function() {
+    $('#mySignup').modal('show')
+  },
   handleSubmit : function(event) {
     event.preventDefault()
+    $('#inputVali').remove()
     const email = this.refs.email.value
     const password  = this.refs.password.value
-
-    const signupInfo = {
-      email: email,
-      password: password
-    }
-    if(password === this.refs.confirmPassword.value){
-      $.post('/guests', signupInfo)
-      .done((data) => {
-        if(data) {
-          alert('Signup Error, Email Already Exists!')
-        }else {
-        }
-      })
-      .error((error) => {
-        console.log('Successfully signup!', error);
-        $(".modal-backdrop").fadeOut(500);
-        this.context.router.replace('/')
-      })
+    if(email && password){
+      const signupInfo = {
+        email: email,
+        password: password
+      }
+      if(password === this.refs.confirmPassword.value){
+        $.post('/guests', signupInfo)
+        .done((data) => {
+          if(data) {
+            $('#signupform').append("<p id='inputVali' style='margin-top:10px;color:red'>Signup Error, Email Already Exists!</p>")
+          }else {
+          }
+        })
+        .error((error) => {
+          console.log('Successfully signup!', error);
+          $("#mySignup").modal('hide');
+          this.context.router.replace('/')
+        })
+      }else{
+        $('#signupform').append("<p id='inputVali' style='margin-top:10px;color:red'>Password does not match confirm password!!</p>")
+      }
     }else{
-      alert('password does not match confirmPassword')
+      $('#signupform').append("<p id='inputVali' style='margin-top:10px;color:red'>Input cannot be empty!</p>")
     }
   },
 

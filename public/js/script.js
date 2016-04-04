@@ -37,7 +37,6 @@ const App = React.createClass({
   // executes on app load, assigns auth.onChange to equal this.updateAuth
   componentWillMount() {
     auth.onChange = this.updateAuth
-    auth.login()
   },
 
   render() {
@@ -60,7 +59,7 @@ const App = React.createClass({
       return (
         <div>
           <div>
-            <h3>Welcome!</h3>
+            <h3>All about that TOILET!</h3>
             <div>
               <Link to="/login"><button className="btn" data-toggle="modal" data-target="#myLogin">Log in</button></Link>
               <Link to="/signup"><button className="btn" data-toggle="modal" data-target="#mySignup">Signup</button></Link>

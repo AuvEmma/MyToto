@@ -10,6 +10,10 @@ const Login = React.createClass({
       error: false
     }
   },
+  componentDidMount: function() {
+    $('#myLogin').modal('show')
+  },
+
   handleSubmit : function(event) {
     event.preventDefault()
 
