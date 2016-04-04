@@ -26,7 +26,7 @@ const Signup = React.createClass({
       })
       .error((error) => {
         console.log('Successfully signup!', error);
-        $(".modal-backdrop").remove();
+        $(".modal-backdrop").fadeOut(500);
         this.context.router.replace('/')
       })
     }else{
@@ -41,7 +41,7 @@ const Signup = React.createClass({
           <div className="modal-content">
             <div className="modal-header">
               <button type="button" className="close" data-dismiss="modal">×</button>
-              <h4><span className="glyphicon glyphicon-lock" /> Signup</h4>
+              <h4><span className="glyphicon glyphicon-heart" /> Signup</h4>
             </div>
 
             <div className="modal-body" id="signupform">
@@ -70,7 +70,7 @@ const Signup = React.createClass({
               </form>
             </div>
             <div className="modal-footer">
-              <button type="submit" className="btn btn-danger btn-default pull-left col-md-6" data-dismiss="modal">
+              <button type="submit" className="btn btn-danger btn-default pull-left" data-dismiss="modal">
                 <span className="glyphicon glyphicon-remove" /> Cancel
               </button>
               <p>Need <a href="#">help?</a></p>
