@@ -46,14 +46,12 @@ function loginRequest(email, password, cb) {
 
   $.post('guests/login', loginCreds)
     .done((data) => {
-      console.log(data);
       cb({
         authenticated: true,
         token: data.token
       })
     })
     .error((error) => {
-      console.log(error);
       cb({
         authenticated: false
 

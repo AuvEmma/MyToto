@@ -46,10 +46,9 @@ function login(req, res, next) {
   var email = req.body.email
   var password = req.body.password
 
-  console.log(email,password,"hey");
   db.one(`SELECT * FROM users WHERE email LIKE $/email/`, req.body)
     .then((data) => {
-      console.log(data)
+      console.log(data,'is login user returning data')
         if (bcrypt.compareSync(password, data.password_digest)) {
           res.rows = data
           next()
@@ -58,6 +57,7 @@ function login(req, res, next) {
       })
       .catch((err) => {
         res.setHeader('test', 'test');
+        res.rows = 'noUser'
         console.error(err, 'error in function login (db/pg/users.js)')
       })
 }

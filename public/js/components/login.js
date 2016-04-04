@@ -5,6 +5,7 @@ const Login = React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired
   },
+
   getInitialState : function() {
     return {
       error: false
