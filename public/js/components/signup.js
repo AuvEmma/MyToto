@@ -1,12 +1,13 @@
 const React = require('react');
 const auth = require('../auth');
-const $     = require('jquery');
 
 const Signup = React.createClass({
   contextTypes: {
     router: React.PropTypes.object
   },
-
+  componentDidMount: function() {
+    $('#mySignup').modal('show')
+  },
   handleSubmit : function(event) {
     event.preventDefault()
     const email = this.refs.email.value
@@ -26,7 +27,7 @@ const Signup = React.createClass({
       })
       .error((error) => {
         console.log('Successfully signup!', error);
-        $(".modal-backdrop").fadeOut(500);
+        $("#mySignup").modal('hide');
         this.context.router.replace('/')
       })
     }else{
