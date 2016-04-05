@@ -60,7 +60,7 @@ footer {
 
 /* Remove border color from the collapsible button */
 .navbar-default .navbar-toggle {
-    border-color: transparent;
+    background-color: grey;
 }
 
 /* Dropdown */

@@ -33,7 +33,10 @@ const App = React.createClass({
       loggedIn: loggedIn
     })
   },
-
+  componentDidMount() {
+    $('#myNavbarUl').append('<li><a class="page-scroll" href="/login">LOGIN</a></li>')
+    $('#myNavbarUl').append('<li><a class="page-scroll" href="/signup">SIGNUP</a></li>')
+  },
   // executes on app load, assigns auth.onChange to equal this.updateAuth
   componentWillMount() {
     auth.onChange = this.updateAuth
@@ -52,7 +55,7 @@ const App = React.createClass({
                 <li><Link to="/logout">Logout</Link></li>
               </ul>
             </nav>
-            {this.props.children || <p>You are {!this.state.loggedIn && 'not'} logged in.</p>}
+            {this.props.children}
           </div>
       )
     } else {
@@ -65,7 +68,7 @@ const App = React.createClass({
               <Link to="/signup"><button className="btn" data-toggle="modal" data-target="#mySignup">Signup</button></Link>
             </div>
           </div>
-          {this.props.children || <p>You are {!this.state.loggedIn && 'not'} logged in.</p>}
+          {this.props.children}
       </div>
       )
     }
