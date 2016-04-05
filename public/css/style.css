@@ -3,32 +3,21 @@ html{
 }
 
 .container {
-    padding: 80px 120px;
+    padding: 72px 25px;
 }
 
 #map {
   width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  bottom: -200px;
-  left: 0;
-  right: 0;
-  z-index: 0;
+  height: 400px;
 }
 
 #container {
-  z-index: 100;
+  height: 700px;
   position: relative;
 }
 
-#guestnavbar {
-  z-index: 100;
-}
 
-footer {
-  z-index: 100;
-}
+
 
 /*NavBar Styling reference http://www.w3schools.com/bootstrap/bootstrap_theme_band.asp*/
 

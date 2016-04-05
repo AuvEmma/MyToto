@@ -15,6 +15,8 @@ const Router = require('react-router').Router;
 const Route = require('react-router').Route;
 const Link = require('react-router').Link;
 const auth = require('./auth');
+const GoogleMap = require('./components/googlemap.js');
+
 
 
 
@@ -34,8 +36,6 @@ const App = React.createClass({
     })
   },
   componentDidMount() {
-    $('#myNavbarUl').append('<li><a class="page-scroll" href="/login">LOGIN</a></li>')
-    $('#myNavbarUl').append('<li><a class="page-scroll" href="/signup">SIGNUP</a></li>')
   },
   // executes on app load, assigns auth.onChange to equal this.updateAuth
   componentWillMount() {
@@ -44,17 +44,17 @@ const App = React.createClass({
 
   render() {
     if(this.state.loggedIn) {
+      // $('#myNavbarUl li:nth-child(1)').after('<li><a href="/create" className="page-scroll">Create</a></li>');
+      // $('#myNavbarUl').append('<li><a href="/Logout" className="page-scroll">Logout</a></li>');
       return (
           <div>
-            <Link to ="/" ><h1>MyToto</h1></Link>
             <nav>
               <ul>
-                <li><Link to="/create">Create</Link></li>
-                <li><Link to="/find">Find</Link></li>
-                <li><Link to="/mytoto">Profile</Link></li>
-                <li><Link to="/logout">Logout</Link></li>
+                <li style={{width: '20%', display: '-webkit-inline-box'}}><Link to="/create" className="btn btn-lg btn-info"><span className="glyphicon glyphicon-tint" />Create</Link></li>
+                <li style={{width: '20%', display: '-webkit-inline-box'}}><Link to="/logout" className="btn btn-lg btn-info"><span className="glyphicon glyphicon-off" />Logout</Link></li>
               </ul>
             </nav>
+            <GoogleMap />
             {this.props.children}
           </div>
       )
@@ -62,7 +62,6 @@ const App = React.createClass({
       return (
         <div>
           <div>
-            <h3>All about that TOILET!</h3>
             <div>
               <Link to="/login"><button className="btn" data-toggle="modal" data-target="#myLogin">Log in</button></Link>
               <Link to="/signup"><button className="btn" data-toggle="modal" data-target="#mySignup">Signup</button></Link>
