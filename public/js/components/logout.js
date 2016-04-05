@@ -9,7 +9,7 @@ const Logout = React.createClass({
   },
 
   render : function() {
-    return <p>You are now logged out</p>
+    return <p></p>
   }
 })
 

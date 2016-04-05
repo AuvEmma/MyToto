@@ -2,6 +2,10 @@ html{
   font-family: 'Josefin Sans', sans-serif;
 }
 
+body {
+  background-image: url('../img/background4.jpg');  
+}
+
 .container {
     padding: 72px 25px;
 }

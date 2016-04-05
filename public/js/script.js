@@ -63,8 +63,8 @@ const App = React.createClass({
         <div>
           <div>
             <div>
-              <Link to="/login"><button className="btn" data-toggle="modal" data-target="#myLogin">Log in</button></Link>
-              <Link to="/signup"><button className="btn" data-toggle="modal" data-target="#mySignup">Signup</button></Link>
+              <Link to="/login"><button className="btn btn-lg btn-info" data-toggle="modal" data-target="#myLogin"><span className="glyphicon glyphicon-send" />Log in</button></Link>
+              <Link to="/signup"><button className="btn btn-lg btn-info" data-toggle="modal" data-target="#mySignup"><span className="glyphicon glyphicon-user" />Signup</button></Link>
             </div>
           </div>
           {this.props.children}
