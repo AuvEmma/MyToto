@@ -52,6 +52,7 @@ const App = React.createClass({
                 <li><Link to="/logout">Logout</Link></li>
               </ul>
             </nav>
+            <div id="map"></div>
             {this.props.children || <p>You are {!this.state.loggedIn && 'not'} logged in.</p>}
           </div>
       )
