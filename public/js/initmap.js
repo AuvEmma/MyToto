@@ -75,7 +75,11 @@ var marker;
 
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
+<<<<<<< HEAD
     center: {lat: 40.740052999999996, lng: -73.9897012},
+=======
+    center: {lat: 40.740061499999996, lng: -73.9897146},
+>>>>>>> ad5eaf55db14f1e32e9c90c1de2593129d24131c
     zoom: 14,
     styles: styles
   });
