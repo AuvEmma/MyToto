@@ -15,7 +15,11 @@ https://mytoto.herokuapp.com/
 * Home page should have a nav bar (Home|MyToto|Logout)
 * Home page should have a huge google map with pins
 * Google map can be zoomed in/out
-* User should be able to click on pins and checkout details of the specific restroom info
+
+
+###### 04/06/2016
+
+1. User should be able to click on pins and checkout details of the specific restroom info
 * User should be able to search for restrooms
 * User should be able to filter restrooms
 * User should be able to add comments to restrooms
@@ -39,9 +43,9 @@ https://mytoto.herokuapp.com/
 
 | Date      | Thu 3/31              | Fri 4/1    | Sat 4/2    | Sun 4/3    | Mon 4/4         | Tue 4/5        | Wed 4/6 | Thu 4/7 | Fri 4/8 | Sat 4/9 | Sun 4/10 |
 |-----------|-----------------------|------------|------------|------------|-----------------|----------------|---------|---------|---------|---------|----------|
-| Morning   | User Story Wireframes | Home page  | Sweet Dream | Sweet Dream |  HomePage Design   |     NYC Public Data      | Share Restroom | CSS     | CSS     | Test     |
-| Noon      | User Auth             | Google Map | Sweet Dream | Sweet Dream |   HomePage Design  |     Search Bar      |    CRUD      |         | CSS     | CSS     | Test     |
-| Afternoon | Cover Page CSS        | Google Map | Sweet Dream | Sweet Dream |   HomePage Design  |     Search Bar      |  CRUD   |         | CSS     | CSS     | Test     |
+| Morning   | User Story Wireframes | Home page  | Sweet Dream | Sweet Dream |  HomePage Design   |     Google Map      | Share Restroom | CSS     | CSS     | Test     |
+| Noon      | User Auth             | Google Map | Sweet Dream | Sweet Dream |   HomePage Design  |     Google Map      |    CRUD      |         | CSS     | CSS     | Test     |
+| Afternoon | Cover Page CSS        | Google Map | Sweet Dream | Sweet Dream |   HomePage Design  |     Google Map      |  CRUD   |    API     | CSS     | CSS     | Test     |
 
 #### Comments
 

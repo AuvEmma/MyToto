@@ -15,6 +15,8 @@ const Router = require('react-router').Router;
 const Route = require('react-router').Route;
 const Link = require('react-router').Link;
 const auth = require('./auth');
+const GoogleMap = require('./components/googlemap.js');
+
 
 
 
@@ -33,7 +35,8 @@ const App = React.createClass({
       loggedIn: loggedIn
     })
   },
-
+  componentDidMount() {
+  },
   // executes on app load, assigns auth.onChange to equal this.updateAuth
   componentWillMount() {
     auth.onChange = this.updateAuth
@@ -41,32 +44,30 @@ const App = React.createClass({
 
   render() {
     if(this.state.loggedIn) {
+      // $('#myNavbarUl li:nth-child(1)').after('<li><a href="/create" className="page-scroll">Create</a></li>');
+      // $('#myNavbarUl').append('<li><a href="/Logout" className="page-scroll">Logout</a></li>');
       return (
           <div>
-            <Link to ="/" ><h1>MyToto</h1></Link>
             <nav>
               <ul>
-                <li><Link to="/create">Create</Link></li>
-                <li><Link to="/find">Find</Link></li>
-                <li><Link to="/mytoto">Profile</Link></li>
-                <li><Link to="/logout">Logout</Link></li>
+                <li style={{width: '20%', display: '-webkit-inline-box'}}><Link to="/create" className="btn btn-lg btn-info"><span className="glyphicon glyphicon-tint" />Create</Link></li>
+                <li style={{width: '20%', display: '-webkit-inline-box'}}><Link to="/logout" className="btn btn-lg btn-info"><span className="glyphicon glyphicon-off" />Logout</Link></li>
               </ul>
             </nav>
-            <div id="map"></div>
-            {this.props.children || <p>You are {!this.state.loggedIn && 'not'} logged in.</p>}
+            <GoogleMap />
+            {this.props.children}
           </div>
       )
     } else {
       return (
         <div>
           <div>
-            <h3>All about that TOILET!</h3>
             <div>
-              <Link to="/login"><button className="btn" data-toggle="modal" data-target="#myLogin">Log in</button></Link>
-              <Link to="/signup"><button className="btn" data-toggle="modal" data-target="#mySignup">Signup</button></Link>
+              <Link to="/login"><button className="btn btn-lg btn-info" data-toggle="modal" data-target="#myLogin"><span className="glyphicon glyphicon-send" />Log in</button></Link>
+              <Link to="/signup"><button className="btn btn-lg btn-info" data-toggle="modal" data-target="#mySignup"><span className="glyphicon glyphicon-user" />Signup</button></Link>
             </div>
           </div>
-          {this.props.children || <p>You are {!this.state.loggedIn && 'not'} logged in.</p>}
+          {this.props.children}
       </div>
       )
     }
