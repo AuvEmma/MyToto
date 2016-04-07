@@ -80,6 +80,7 @@ function initMap() {
     styles: styles,
     scrollwheel: false
   });
+  var geoloccontrol = new klokantech.GeolocationControl(map, 16);
   // Search Bar on Map reference https://google-developers.appspot.com/maps/documentation/javascript/examples/geocoding-simple
   var geocoder = new google.maps.Geocoder();
 
