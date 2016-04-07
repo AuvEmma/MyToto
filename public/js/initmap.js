@@ -86,8 +86,17 @@ function initMap() {
   document.getElementById('submit').addEventListener('click', function() {
     geocodeAddress(geocoder, map);
   });
+
+  var input = (document.getElementById('location'));
+  var autocomplete = new google.maps.places.Autocomplete(input);
+  autocomplete.addListener('place_changed', function() {
+    var place = autocomplete.getPlace();
+    localStorage.lat = place.geometry.location.lat();
+    localStorage.lng = place.geometry.location.lng();
+  });
+
   function geocodeAddress(geocoder, resultsMap) {
-        var address = document.getElementById('address').value;
+        var address = document.getElementById('location').value;
         geocoder.geocode({'address': address}, function(results, status) {
           if (status === google.maps.GeocoderStatus.OK) {
             resultsMap.setCenter(results[0].geometry.location);
@@ -112,7 +121,7 @@ function initMap() {
         map: map,
         draggable: true,
         position: pos,
-        icon: 'https://lh3.ggpht.com/hx6IeSRualApBd7KZB9s2N7bcHZIjtgr9VEuOxHzpd05_CZ6RxZwehpXCRN-1ps3HuL0g8Wi=w9-h9'
+        icon: 'https://www.google.com/support/enterprise/static/geo/cdate/art/dots/blue_dot.png'
       });
       marker.addListener('click', toggleBounce);
     }, function() {

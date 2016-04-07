@@ -12,8 +12,8 @@ const GoogleMap = React.createClass({
     return (
       <div>
         <div id="floating-panel">
-          <input id="address" type="textbox" defaultValue="Type location" />
-          <input id="submit" type="button" defaultValue="Go!" />
+          <input id="location" type="textbox" placeholder="Type location" />
+          <input id="submit" type="button" value="Go!" />
         </div>
         <div id="map">
         </div>
