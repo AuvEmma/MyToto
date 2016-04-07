@@ -43,7 +43,7 @@ body {
 /* Add a dark background color with a little bit see-through */
 .navbar {
     margin-bottom: 0;
-    background-color: #336BCC !important;
+    background-color: #2E3092 !important;
     border: 0;
     font-size: 13px !important;
     letter-spacing: 4px;
@@ -68,7 +68,7 @@ body {
 
 /* Remove border color from the collapsible button */
 .navbar-default .navbar-toggle {
-    background-color: grey;
+    background-color: rgba(255, 255, 255, 0.53) !important;
 }
 
 /* Dropdown */

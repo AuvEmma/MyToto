@@ -47,7 +47,7 @@ const App = React.createClass({
       // $('#myNavbarUl li:nth-child(1)').after('<li><a href="/create" className="page-scroll">Create</a></li>');
       // $('#myNavbarUl').append('<li><a href="/Logout" className="page-scroll">Logout</a></li>');
       return (
-          <div>
+          <div style={{marginTop:"300px"}}>
             <div>
               <Link to="/create"><button className="btn btn-lg btn-info"><span className="glyphicon glyphicon-tint" />Add My Own Secret TOTO</button></Link>
               <Link to="/logout"><button className="btn btn-lg btn-info"><span className="glyphicon glyphicon-off" />Logout</button></Link>
@@ -57,7 +57,7 @@ const App = React.createClass({
       )
     } else {
       return (
-        <div>
+        <div style={{marginTop:"300px"}}>
           <div>
             <div>
               <Link to="/login"><button className="btn btn-lg btn-info" data-toggle="modal" data-target="#myLogin"><span className="glyphicon glyphicon-send" />Log in</button></Link>
