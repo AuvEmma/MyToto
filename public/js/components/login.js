@@ -31,7 +31,9 @@ const Login = React.createClass({
         this.context.router.replace('/')
       }
     })
+    $('#coverinfo').remove()
     $('#myLogin').modal('hide')
+
   },
   render : function() {
     return (

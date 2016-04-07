@@ -8,7 +8,7 @@ body {
 .container {
     padding: 72px 25px;
     background-image: url('../img/yellowpubu.jpg');
-    background-size: 100%
+    background-size: cover;
 }
 
 #map {
@@ -20,6 +20,15 @@ body {
   width: 100%;
   height: 700px;
   position: relative;
+}
+
+#covermap {
+  width: 100%;
+  height: 500px;
+}
+
+#coverinfo {
+  height: 300px;
 }
 
 
