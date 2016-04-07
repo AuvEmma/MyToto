@@ -43,9 +43,9 @@ https://mytoto.herokuapp.com/
 
 | Date      | Thu 3/31              | Fri 4/1    | Sat 4/2    | Sun 4/3    | Mon 4/4         | Tue 4/5        | Wed 4/6 | Thu 4/7 | Fri 4/8 | Sat 4/9 | Sun 4/10 |
 |-----------|-----------------------|------------|------------|------------|-----------------|----------------|---------|---------|---------|---------|----------|
-| Morning   | User Story Wireframes | Home page  | Sweet Dream | Sweet Dream |  HomePage Design   |     Google Map      | Share Restroom | CSS     | CSS     | Test     |
-| Noon      | User Auth             | Google Map | Sweet Dream | Sweet Dream |   HomePage Design  |     Google Map      |    CRUD      |         | CSS     | CSS     | Test     |
-| Afternoon | Cover Page CSS        | Google Map | Sweet Dream | Sweet Dream |   HomePage Design  |     Google Map      |  CRUD   |    API     | CSS     | CSS     | Test     |
+| Morning   | User Story Wireframes | Home page  | Sweet Dream | Sweet Dream |  HomePage Design   |     Google Map      | Share Restroom | Search Bar     |  CRUD     | API     |Test
+| Noon      | User Auth             | Google Map | Sweet Dream | Sweet Dream |   HomePage Design  |     Google Map      |    CRUD      |     My location Button    | CRUD     | API     | Test     |
+| Afternoon | Cover Page CSS        | Google Map | Sweet Dream | Sweet Dream |   HomePage Design  |     Google Map      |  CRUD   |    Cover Styling/logo     | API     | CSS     | CODE FREEZE     |
 
 #### Comments
 
