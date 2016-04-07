@@ -8,13 +8,16 @@ const path         = require('path');
 const bodyParser   = require('body-parser');
 const secret       = "sweet sweet secret";
 const expressJWT   = require('express-jwt');
+const favicon      = require('serve-favicon');
+
 const userRoutes   = require( path.join(__dirname, '/routes/users'));
-const guestRoutes   = require( path.join(__dirname, '/routes/guests'));
+const guestRoutes  = require( path.join(__dirname, '/routes/guests'));
 
 const app          = express();
 // need to use process.env.PORT for heroku deployment
 const _port        = process.argv[2]|| process.env.PORT||3000;
 
+app.use(favicon(__dirname + '/public/img/favicon.ico'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
