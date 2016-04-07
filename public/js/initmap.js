@@ -74,10 +74,11 @@ var styles = [
 var marker;
 
 function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {
+  var map = new google.maps.Map(document.getElementById('covermap'), {
     center: {lat: 40.740052999999996, lng: -73.9897012},
     zoom: 14,
-    styles: styles
+    styles: styles,
+    scrollwheel: false
   });
 
   // Try HTML5 geolocation.

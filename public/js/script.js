@@ -48,12 +48,10 @@ const App = React.createClass({
       // $('#myNavbarUl').append('<li><a href="/Logout" className="page-scroll">Logout</a></li>');
       return (
           <div>
-            <nav>
-              <ul>
-                <li style={{width: '20%', display: '-webkit-inline-box'}}><Link to="/create" className="btn btn-lg btn-info"><span className="glyphicon glyphicon-tint" />Create</Link></li>
-                <li style={{width: '20%', display: '-webkit-inline-box'}}><Link to="/logout" className="btn btn-lg btn-info"><span className="glyphicon glyphicon-off" />Logout</Link></li>
-              </ul>
-            </nav>
+            <div>
+              <Link to="/create"><button className="btn btn-lg btn-info"><span className="glyphicon glyphicon-tint" />Add My Own Secret TOTO</button></Link>
+              <Link to="/logout"><button className="btn btn-lg btn-info"><span className="glyphicon glyphicon-off" />Logout</button></Link>
+            </div>
             <GoogleMap />
             {this.props.children}
           </div>

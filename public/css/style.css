@@ -3,11 +3,12 @@ html{
 }
 
 body {
-  background-image: url('../img/background4.jpg');
 }
 
 .container {
     padding: 72px 25px;
+    background-image: url('../img/yellowpubu.jpg');
+    background-size: cover;
 }
 
 #map {
@@ -16,8 +17,18 @@ body {
 }
 
 #container {
+  width: 100%;
   height: 700px;
   position: relative;
+}
+
+#covermap {
+  width: 100%;
+  height: 500px;
+}
+
+#coverinfo {
+  height: 300px;
 }
 
 
