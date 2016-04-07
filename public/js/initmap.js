@@ -80,6 +80,26 @@ function initMap() {
     styles: styles,
     scrollwheel: false
   });
+  // Search Bar on Map reference https://google-developers.appspot.com/maps/documentation/javascript/examples/geocoding-simple
+  var geocoder = new google.maps.Geocoder();
+
+  document.getElementById('submit').addEventListener('click', function() {
+    geocodeAddress(geocoder, map);
+  });
+  function geocodeAddress(geocoder, resultsMap) {
+        var address = document.getElementById('address').value;
+        geocoder.geocode({'address': address}, function(results, status) {
+          if (status === google.maps.GeocoderStatus.OK) {
+            resultsMap.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+              map: resultsMap,
+              position: results[0].geometry.location
+            });
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
 
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
@@ -91,9 +111,8 @@ function initMap() {
       marker = new google.maps.Marker({
         map: map,
         draggable: true,
-        animation: google.maps.Animation.DROP,
         position: pos,
-        icon: 'img/bluemarker.png'
+        icon: 'https://lh3.ggpht.com/hx6IeSRualApBd7KZB9s2N7bcHZIjtgr9VEuOxHzpd05_CZ6RxZwehpXCRN-1ps3HuL0g8Wi=w9-h9'
       });
       marker.addListener('click', toggleBounce);
     }, function() {
