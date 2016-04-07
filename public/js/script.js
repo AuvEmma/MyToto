@@ -52,7 +52,6 @@ const App = React.createClass({
               <Link to="/create"><button className="btn btn-lg btn-info"><span className="glyphicon glyphicon-tint" />Add My Own Secret TOTO</button></Link>
               <Link to="/logout"><button className="btn btn-lg btn-info"><span className="glyphicon glyphicon-off" />Logout</button></Link>
             </div>
-            <GoogleMap />
             {this.props.children}
           </div>
       )
@@ -64,7 +63,6 @@ const App = React.createClass({
               <Link to="/login"><button className="btn btn-lg btn-info" data-toggle="modal" data-target="#myLogin"><span className="glyphicon glyphicon-send" />Log in</button></Link>
               <Link to="/signup"><button className="btn btn-lg btn-info" data-toggle="modal" data-target="#mySignup"><span className="glyphicon glyphicon-user" />Signup</button></Link>
             </div>
-          <GoogleMap />
           </div>
           {this.props.children}
       </div>

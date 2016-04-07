@@ -21,7 +21,10 @@
   <script src="https://code.jquery.com/jquery-2.2.1.min.js"   integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <script src="js/loadjs.js"></script>
+
+  <!-- Google My Location Button Plugin and Script by MapTilerLayer http://www.maptiler.com/maptilerlayer/ -->
+  <script src="https://cdn.klokantech.com/maptilerlayer/v1/index.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZwpThrbZbJVY1yt-oTlYePJ_s5I-GZIU&amp;libraries=places&amp;callback=initMap" async="" class="googlemap"></script>
   <script>
    $(function(){
      $("#guestnavbar").load("/partials/guestnavbar.html");
@@ -36,6 +39,11 @@
   <div id="container" class="text-center">
     <!-- React goes here -->
   </div>
+  <div id="floating-panel">
+    <input id="location" type="textbox" style="width:230px" placeholder="Type location" />
+    <input id="submit" class="btn" type="button" value="Go!" />
+  </div>
+  <div id="map"></div>
   <div id="footer"><!-- footer goes here --></div>
 
   <!-- Plugin JavaScript -->
