@@ -3,9 +3,8 @@ const auth = require('../auth');
 
 const Logout = React.createClass({
   componentDidMount : function() {
+    $('.googlemap').remove()
     auth.logout()
-    // $('#create').remove()
-    // $('#logout').remove()
   },
 
   render : function() {

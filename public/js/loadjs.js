@@ -2,10 +2,12 @@
 (function( w ){
   var loadJS = function( src, cb ){
     "use strict";
+    $('')
     var ref = w.document.getElementsByTagName( "script" )[ 0 ];
-    var script = w.document.createElement( "script" );
+    var script = w.document.createElement( "script" )
     script.src = src;
     script.async = true;
+    script.className = "googlemap"
     ref.parentNode.insertBefore( script, ref );
     if (cb && typeof(cb) === "function") {
       script.onload = cb;
