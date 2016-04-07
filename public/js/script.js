@@ -1,5 +1,5 @@
 'use strict'
-console.log('react hered');
+console.log('react on');
 
 const React = require('react');
 const ReactDOM = require('react-dom');
@@ -64,6 +64,7 @@ const App = React.createClass({
               <Link to="/login"><button className="btn btn-lg btn-info" data-toggle="modal" data-target="#myLogin"><span className="glyphicon glyphicon-send" />Log in</button></Link>
               <Link to="/signup"><button className="btn btn-lg btn-info" data-toggle="modal" data-target="#mySignup"><span className="glyphicon glyphicon-user" />Signup</button></Link>
             </div>
+          <GoogleMap />
           </div>
           {this.props.children}
       </div>
