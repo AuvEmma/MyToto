@@ -72,6 +72,7 @@ var styles = [
 ];
 
 var marker;
+var geocoder;
 
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -81,8 +82,9 @@ function initMap() {
     scrollwheel: false
   });
   var geoloccontrol = new klokantech.GeolocationControl(map, 16);
+
   // Search Bar on Map reference https://google-developers.appspot.com/maps/documentation/javascript/examples/geocoding-simple
-  var geocoder = new google.maps.Geocoder();
+  geocoder = new google.maps.Geocoder();
 
   document.getElementById('submit').addEventListener('click', function() {
     geocodeAddress(geocoder, map);
@@ -97,19 +99,38 @@ function initMap() {
   });
 
   function geocodeAddress(geocoder, resultsMap) {
-        var address = document.getElementById('location').value;
-        geocoder.geocode({'address': address}, function(results, status) {
-          if (status === google.maps.GeocoderStatus.OK) {
-            resultsMap.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
-              map: resultsMap,
-              position: results[0].geometry.location
-            });
-          } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-          }
+    var address = document.getElementById('location').value;
+    geocoder.geocode({'address': address}, function(results, status) {
+      if (status === google.maps.GeocoderStatus.OK) {
+        resultsMap.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+          map: resultsMap,
+          position: results[0].geometry.location
         });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
       }
+    })
+  }
+
+  geocodeAPIAddress(geocoder, map)
+  function geocodeAPIAddress(geocoder, resultsMap) {
+    var addresses = JSON.parse(localStorage.toiletAPI)
+    addresses.forEach((el)=>{
+      geocoder.geocode({'address': el}, function(results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+          resultsMap.setCenter(results[0].geometry.location);
+          var marker = new google.maps.Marker({
+            map: resultsMap,
+            position: results[0].geometry.location
+          });
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      })
+    })
+  }
+
 
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
