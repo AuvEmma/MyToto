@@ -114,21 +114,34 @@ function initMap() {
   }
 
   geocodeAPIAddress(geocoder, map)
+
   function geocodeAPIAddress(geocoder, resultsMap) {
     var addresses = JSON.parse(localStorage.toiletAPI)
+    function Geocode(address) {
+      geocoder.geocode({
+          'address': address
+      }, function(results, status) {
+          if (status === google.maps.GeocoderStatus.OK) {
+              var result = results[0].geometry.location;
+              var marker = new google.maps.Marker({
+                  position: result,
+                  map: map,
+                  animation: google.maps.Animation.DROP,
+                  icon: '../img/bluemarker.png'
+              });
+          } else if (status === google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
+              setTimeout(function() {
+                  Geocode(address);
+              }, 200);
+          } else {
+              alert("Geocode was not successful for the following reason:"
+                    + status);
+          }
+        });
+      }
     addresses.forEach((el)=>{
-      geocoder.geocode({'address': el}, function(results, status) {
-        if (status === google.maps.GeocoderStatus.OK) {
-          var pmarker = new google.maps.Marker({
-            map: resultsMap,
-            position: results[0].geometry.location,
-            animation: google.maps.Animation.DROP,
-            icon: '../img/bluemarker.png'
-          })
-        } else {
-          alert('Geocode was not successful for the following reason: ' + status);
-        }
-      })
+      console.log(el);
+      Geocode(el)
     })
   }
 
