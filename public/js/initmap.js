@@ -72,6 +72,7 @@ var styles = [
 ];
 
 var marker;
+var geocoder;
 
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -81,8 +82,9 @@ function initMap() {
     scrollwheel: false
   });
   var geoloccontrol = new klokantech.GeolocationControl(map, 16);
+
   // Search Bar on Map reference https://google-developers.appspot.com/maps/documentation/javascript/examples/geocoding-simple
-  var geocoder = new google.maps.Geocoder();
+  geocoder = new google.maps.Geocoder();
 
   document.getElementById('submit').addEventListener('click', function() {
     geocodeAddress(geocoder, map);
@@ -97,19 +99,48 @@ function initMap() {
   });
 
   function geocodeAddress(geocoder, resultsMap) {
-        var address = document.getElementById('location').value;
-        geocoder.geocode({'address': address}, function(results, status) {
-          if (status === google.maps.GeocoderStatus.OK) {
-            resultsMap.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
-              map: resultsMap,
-              position: results[0].geometry.location
-            });
-          } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-          }
+    var address = document.getElementById('location').value;
+    geocoder.geocode({'address': address}, function(results, status) {
+      if (status === google.maps.GeocoderStatus.OK) {
+        resultsMap.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+          map: resultsMap,
+          position: results[0].geometry.location
         });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
       }
+    })
+  }
+  setPublicMarker(map)
+  function setPublicMarker(resultsMap){
+    var ll        =[]
+    var addresses = JSON.parse(localStorage.toiletAPI)
+    addresses.forEach((el)=>{
+      Geocode(el)
+    })
+    function Geocode(address){
+      $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address='+address+'&sensor=false', null, function (data) {
+        if(data.status === "OK"){
+          var p = data.results[0].geometry.location
+          var latlng = new google.maps.LatLng(p.lat, p.lng);
+          new google.maps.Marker({
+            map: resultsMap,
+            position: latlng,
+            animation: google.maps.Animation.DROP,
+            icon: '../img/bluemarker.png'
+          });
+        }else if(data.status === "OVER_QUERY_LIMIT"){
+          setTimeout(function(){
+            Geocode(address);
+          }, 50)
+        }else{
+          alert("Geocode was not successful for the following reason:"
+                + data.status);
+        }
+      })
+    }
+  }
 
   // Try HTML5 geolocation.
   if (navigator.geolocation) {

@@ -40,12 +40,22 @@ const App = React.createClass({
   // executes on app load, assigns auth.onChange to equal this.updateAuth
   componentWillMount() {
     auth.onChange = this.updateAuth
+    $.ajax({
+      url   : 'https://data.cityofnewyork.us/resource/hjae-yuav.json',
+      type  : 'GET'
+    })
+    .done((data)=>{
+      var toiletAPI = [];
+      data.forEach((el)=>{
+        el.location = el.location+', new york, NY, USA'
+        toiletAPI.push(el.location)
+      })
+      localStorage.toiletAPI = JSON.stringify(toiletAPI)
+    })
   },
 
   render() {
     if(this.state.loggedIn) {
-      // $('#myNavbarUl li:nth-child(1)').after('<li><a href="/create" className="page-scroll">Create</a></li>');
-      // $('#myNavbarUl').append('<li><a href="/Logout" className="page-scroll">Logout</a></li>');
       return (
           <div style={{marginTop:"300px"}}>
             <div>
