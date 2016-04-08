@@ -3,6 +3,7 @@
   var loadJS = function( src, cb ){
     "use strict";
     $('')
+    $('.googlemap').remove()
     var ref = w.document.getElementsByTagName( "script" )[ 0 ];
     var script = w.document.createElement( "script" )
     script.src = src;
