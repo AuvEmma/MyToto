@@ -114,15 +114,39 @@ function initMap() {
   }
   setPublicMarker(map)
   function setPublicMarker(resultsMap){
+    var infowindow = new google.maps.InfoWindow;
     var addresses = JSON.parse(localStorage.publictoto)
+
     addresses.forEach((el)=>{
+      var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3 id="firstHeading" class="firstHeading">'+el.name+'</h3>'+
+      '<div id="bodyContent">'+
+      '<ul>' +
+      '<li>Location: '+el.location+ '</li><br>'+
+      '<li>Open Yearround: '+el.open_yearround+ '</li><br>'+
+      '<li>Handicap Accessible: '+el.handicap_accessible+ '</li><br>'+
+      '<li>Borough: '+el.borough+ '</li><br>'+
+      '<li>Comment: '+el.comments+ '</li><br>'+
+      '</ul>'+
+      '</div>'+
+      '</div>';
       var latlng = new google.maps.LatLng(el.latitude, el.longitude);
-      new google.maps.Marker({
+      var pmarker = new google.maps.Marker({
         map: resultsMap,
         position: latlng,
         animation: google.maps.Animation.DROP,
         icon: '../img/bluemarker.png'
-      });
+      })
+      infowindow.setContent(contentString)
+      pmarker.addListener('click', function() {
+        infowindow.close()
+        infowindow.open(map, pmarker);
+      })
+      resultsMap.addListener('click', function(){
+        infowindow.close()
+      })
     })
   }
 
@@ -163,8 +187,4 @@ function toggleBounce() {
   } else {
     marker.setAnimation(google.maps.Animation.BOUNCE);
   }
-}
-
-function infoWindow(){
-
 }
