@@ -76,7 +76,6 @@ var geocoder;
 
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 40.740052999999996, lng: -73.9897012},
     zoom: 14,
     styles: styles,
     scrollwheel: false
@@ -114,21 +113,21 @@ function initMap() {
   }
   setPublicMarker(map)
   function setPublicMarker(resultsMap){
-    var infowindow = new google.maps.InfoWindow;
     var addresses = JSON.parse(localStorage.publictoto)
 
     addresses.forEach((el)=>{
+      var infowindow = new google.maps.InfoWindow;
       var contentString = '<div id="content">'+
       '<div id="siteNotice">'+
       '</div>'+
       '<h3 id="firstHeading" class="firstHeading">'+el.name+'</h3>'+
       '<div id="bodyContent">'+
-      '<ul>' +
-      '<li>Location: '+el.location+ '</li><br>'+
-      '<li>Open Yearround: '+el.open_yearround+ '</li><br>'+
-      '<li>Handicap Accessible: '+el.handicap_accessible+ '</li><br>'+
-      '<li>Borough: '+el.borough+ '</li><br>'+
-      '<li>Comment: '+el.comments+ '</li><br>'+
+      '<ul class="list-group">' +
+      '<li class="list-group-item">Location: '+el.location+ '</li><br>'+
+      '<li class="list-group-item">Open Yearround: '+el.open_yearround+ '</li><br>'+
+      '<li class="list-group-item">Handicap Accessible: '+el.handicap_accessible+ '</li><br>'+
+      '<li class="list-group-item">Borough: '+el.borough+ '</li><br>'+
+      '<li class="list-group-item">Comment: '+el.comments+ '</li><br>'+
       '</ul>'+
       '</div>'+
       '</div>';
@@ -157,6 +156,7 @@ function initMap() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
+      map.setCenter(pos)
       marker = new google.maps.Marker({
         map: map,
         draggable: true,
