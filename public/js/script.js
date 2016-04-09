@@ -9,6 +9,7 @@ const Login = require('./components/login.js');
 const Signup = require('./components/signup.js');
 const Logout = require('./components/logout.js');
 const NotFound = require('./components/404.js');
+const Create = require('./components/create.js');
 
 const browserHistory = require('react-router').browserHistory;
 const Router = require('react-router').Router;
@@ -36,22 +37,20 @@ const App = React.createClass({
     })
   },
   componentDidMount() {
+    $.ajax({
+      url   : '/toto/public',
+      type  : 'GET',
+    })
+    .done((data)=>{
+      localStorage.publictoto = JSON.stringify(data)
+    })
+    .error((err)=>{
+      console.log(err);
+    })
   },
   // executes on app load, assigns auth.onChange to equal this.updateAuth
   componentWillMount() {
     auth.onChange = this.updateAuth
-    $.ajax({
-      url   : 'https://data.cityofnewyork.us/resource/hjae-yuav.json',
-      type  : 'GET'
-    })
-    .done((data)=>{
-      var toiletAPI = [];
-      data.forEach((el)=>{
-        el.location = el.location+', new york, NY, USA'
-        toiletAPI.push(el.location)
-      })
-      localStorage.toiletAPI = JSON.stringify(toiletAPI)
-    })
   },
 
   render() {
@@ -59,7 +58,7 @@ const App = React.createClass({
       return (
           <div style={{marginTop:"300px"}}>
             <div>
-              <Link to="/create"><button className="btn btn-lg btn-info"><span className="glyphicon glyphicon-tint" />Add My Own Secret TOTO</button></Link>
+              <Link to="/create"><button className="btn btn-lg btn-info" data-toggle="modal" data-target="#myCreate"><span className="glyphicon glyphicon-tint" />Add My Own Secret TOTO</button></Link>
               <Link to="/logout"><button className="btn btn-lg btn-info"><span className="glyphicon glyphicon-off" />Logout</button></Link>
             </div>
             {this.props.children}
@@ -89,6 +88,7 @@ ReactDOM.render((
       <Route path="login" component={Login} />
       <Route path="signup" component={Signup} />
       <Route path="logout" component={Logout} />
+      <Route path="create" component={Create} />
     </Route>
     <Route path="*" component={NotFound} />
   </Router>

@@ -76,7 +76,6 @@ var geocoder;
 
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 40.740052999999996, lng: -73.9897012},
     zoom: 14,
     styles: styles,
     scrollwheel: false
@@ -114,32 +113,40 @@ function initMap() {
   }
   setPublicMarker(map)
   function setPublicMarker(resultsMap){
-    var ll        =[]
-    var addresses = JSON.parse(localStorage.toiletAPI)
+    var addresses = JSON.parse(localStorage.publictoto)
+
     addresses.forEach((el)=>{
-      Geocode(el)
-    })
-    function Geocode(address){
-      $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address='+address+'&sensor=false', null, function (data) {
-        if(data.status === "OK"){
-          var p = data.results[0].geometry.location
-          var latlng = new google.maps.LatLng(p.lat, p.lng);
-          new google.maps.Marker({
-            map: resultsMap,
-            position: latlng,
-            animation: google.maps.Animation.DROP,
-            icon: '../img/bluemarker.png'
-          });
-        }else if(data.status === "OVER_QUERY_LIMIT"){
-          setTimeout(function(){
-            Geocode(address);
-          }, 50)
-        }else{
-          alert("Geocode was not successful for the following reason:"
-                + data.status);
-        }
+      var infowindow = new google.maps.InfoWindow;
+      var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3 id="firstHeading" class="firstHeading">'+el.name+'</h3>'+
+      '<div id="bodyContent">'+
+      '<ul class="list-group">' +
+      '<li class="list-group-item">Location: '+el.location+ '</li><br>'+
+      '<li class="list-group-item">Open Yearround: '+el.open_yearround+ '</li><br>'+
+      '<li class="list-group-item">Handicap Accessible: '+el.handicap_accessible+ '</li><br>'+
+      '<li class="list-group-item">Borough: '+el.borough+ '</li><br>'+
+      '<li class="list-group-item">Comment: '+el.comments+ '</li><br>'+
+      '</ul>'+
+      '</div>'+
+      '</div>';
+      var latlng = new google.maps.LatLng(el.latitude, el.longitude);
+      var pmarker = new google.maps.Marker({
+        map: resultsMap,
+        position: latlng,
+        animation: google.maps.Animation.DROP,
+        icon: '../img/bluemarker.png'
       })
-    }
+      infowindow.setContent(contentString)
+      pmarker.addListener('click', function() {
+        infowindow.close()
+        infowindow.open(map, pmarker);
+      })
+      resultsMap.addListener('click', function(){
+        infowindow.close()
+      })
+    })
   }
 
   // Try HTML5 geolocation.
@@ -149,6 +156,7 @@ function initMap() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
+      map.setCenter(pos)
       marker = new google.maps.Marker({
         map: map,
         draggable: true,
@@ -179,8 +187,4 @@ function toggleBounce() {
   } else {
     marker.setAnimation(google.maps.Animation.BOUNCE);
   }
-}
-
-function infoWindow(){
-
 }

@@ -12,6 +12,7 @@ const favicon      = require('serve-favicon');
 
 const userRoutes   = require( path.join(__dirname, '/routes/users'));
 const guestRoutes  = require( path.join(__dirname, '/routes/guests'));
+const totoRoutes  = require( path.join(__dirname, '/routes/toto'));
 
 const app          = express();
 // need to use process.env.PORT for heroku deployment
@@ -29,6 +30,7 @@ app.use(logger('dev'));
 
 app.use('/guests', guestRoutes)
 app.use('/users',expressJWT({secret:secret}),userRoutes)
+app.use('/toto',totoRoutes)
 
 app.get('/',(req,res)=>{
   res.sendFile(path.join(__dirname,'public/index.html'));
