@@ -112,34 +112,19 @@ function initMap() {
       }
     })
   }
-  setPublicMarker(map)
+  // setPublicMarker(map)
   function setPublicMarker(resultsMap){
-    var ll        =[]
-    var addresses = JSON.parse(localStorage.toiletAPI)
+    var addresses = JSON.parse(localStorage.publictoto)
     addresses.forEach((el)=>{
-      Geocode(el)
+      console.log(el);
+      // var latlng = new google.maps.LatLng(el.lat, el.lng);
+      // new google.maps.Marker({
+      //   map: resultsMap,
+      //   position: latlng,
+      //   animation: google.maps.Animation.DROP,
+      //   icon: '../img/bluemarker.png'
+      // });
     })
-    function Geocode(address){
-      $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address='+address+'&sensor=false', null, function (data) {
-        if(data.status === "OK"){
-          var p = data.results[0].geometry.location
-          var latlng = new google.maps.LatLng(p.lat, p.lng);
-          new google.maps.Marker({
-            map: resultsMap,
-            position: latlng,
-            animation: google.maps.Animation.DROP,
-            icon: '../img/bluemarker.png'
-          });
-        }else if(data.status === "OVER_QUERY_LIMIT"){
-          setTimeout(function(){
-            Geocode(address);
-          }, 50)
-        }else{
-          alert("Geocode was not successful for the following reason:"
-                + data.status);
-        }
-      })
-    }
   }
 
   // Try HTML5 geolocation.

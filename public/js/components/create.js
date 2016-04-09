@@ -1,7 +1,8 @@
 const React = require('react');
 const auth = require('../auth');
 
-const Login = React.createClass({
+
+const Create = React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired
   },
@@ -11,37 +12,38 @@ const Login = React.createClass({
     }
   },
   componentDidMount: function() {
-    $('#myLogin').modal('show')
+    $('#myCreate').modal('show')
   },
 
   handleSubmit : function(event) {
     event.preventDefault()
 
-    const email = this.refs.email.value
-    const password = this.refs.password.value
+    const location = this.refs.location.value
+    const description = this.refs.description.value
 
-    auth.login(email, password, (loggedIn) => {
-      if (!loggedIn)
-        return this.setState({ error: true })
-      const { location } = this.props
-
-      if (location.state && location.state.nextPathname) {
-        this.context.router.replace(location.state.nextPathname)
-      } else {
-        this.context.router.replace('/')
-      }
-    })
-    $('#myLogin').modal('hide')
+    const newToto = {
+      location: location,
+      description: description
+    }
+    console.log(newToto);
+    $.post('/toto', newToto)
+      .done(
+        
+      )
+      .error((error)=>{
+        console.log('Error posting toto!');
+      })
+    $('#myCreate').modal('hide')
 
   },
   render : function() {
     return (
-      <div id="myLogin" role="dialog" className="modal fade">
+      <div id="myCreate" role="dialog" className="modal fade">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
               <button type="button" className="close" data-dismiss="modal">×</button>
-              <h4><span className="glyphicon glyphicon-heart" /> Login</h4>
+              <h4><span className="glyphicon glyphicon-heart" /> Add my TOTO</h4>
             </div>
 
             <div className="modal-body" id="loginform">
@@ -49,16 +51,16 @@ const Login = React.createClass({
 
                 <div className="input-group input-group-md col-md-6 col-md-offset-3" style={{marginBottom: 10}}>
                   <span className="input-group-addon">
-                    <span className="glyphicon glyphicon-envelope"></span>
+                    <span className="glyphicon glyphicon-map-marker"></span>
                   </span>
-                  <input ref="email" type="email" id="inputEmail" className="form-control"  placeholder="Email address" autofocus />
+                  <input ref="location" type="text" id="location" className="form-control"  placeholder="location" autofocus />
                 </div>
 
                 <div className="input-group input-group-md col-md-6 col-md-offset-3" style={{marginBottom: 10}}>
                   <span className="input-group-addon">
-                    <span className="glyphicon glyphicon-lock"></span>
+                    <span className="glyphicon glyphicon-list-alt"></span>
                   </span>
-                  <input ref="password" type="password" id="inputPassword" className="form-control" placeholder="Password" />
+                  <input ref="description" type="text" className="form-control" placeholder="description" />
                 </div>
 
                 <button type="submit" className="btn" style={{marginTop: 10}}>Login
@@ -84,4 +86,4 @@ const Login = React.createClass({
   }
 })
 
-module.exports = Login;
+module.exports = Create;
