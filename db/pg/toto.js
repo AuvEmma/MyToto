@@ -27,7 +27,7 @@ function publicToto(req,res,next){
   db.any(`select * from publictoto`)
     .then(function(data){
       console.log(data);
-      res.publicToto = data;
+      res.rows = data;
       next()
     })
     .catch(function(err){

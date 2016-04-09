@@ -37,10 +37,6 @@ const App = React.createClass({
     })
   },
   componentDidMount() {
-  },
-  // executes on app load, assigns auth.onChange to equal this.updateAuth
-  componentWillMount() {
-    auth.onChange = this.updateAuth
     $.ajax({
       url   : '/toto/public',
       type  : 'GET',
@@ -51,6 +47,10 @@ const App = React.createClass({
     .error((err)=>{
       console.log(err);
     })
+  },
+  // executes on app load, assigns auth.onChange to equal this.updateAuth
+  componentWillMount() {
+    auth.onChange = this.updateAuth
   },
 
   render() {

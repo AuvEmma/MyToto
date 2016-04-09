@@ -112,18 +112,17 @@ function initMap() {
       }
     })
   }
-  // setPublicMarker(map)
+  setPublicMarker(map)
   function setPublicMarker(resultsMap){
     var addresses = JSON.parse(localStorage.publictoto)
     addresses.forEach((el)=>{
-      console.log(el);
-      // var latlng = new google.maps.LatLng(el.lat, el.lng);
-      // new google.maps.Marker({
-      //   map: resultsMap,
-      //   position: latlng,
-      //   animation: google.maps.Animation.DROP,
-      //   icon: '../img/bluemarker.png'
-      // });
+      var latlng = new google.maps.LatLng(el.latitude, el.longitude);
+      new google.maps.Marker({
+        map: resultsMap,
+        position: latlng,
+        animation: google.maps.Animation.DROP,
+        icon: '../img/bluemarker.png'
+      });
     })
   }
 
