@@ -17,18 +17,19 @@ const Create = React.createClass({
 
   handleSubmit : function(event) {
     event.preventDefault()
-
+    const name = this.refs.name.value
     const location = this.refs.location.value
     const description = this.refs.description.value
 
     const newToto = {
+      name : name,
       location: location,
       description: description
     }
     console.log(newToto);
     $.post('/toto', newToto)
       .done(
-        
+
       )
       .error((error)=>{
         console.log('Error posting toto!');
@@ -48,13 +49,19 @@ const Create = React.createClass({
 
             <div className="modal-body" id="loginform">
               <form role="form" onSubmit={this.handleSubmit}>
+              <div className="input-group input-group-md col-md-6 col-md-offset-3" style={{marginBottom: 10}}>
+                <span className="input-group-addon">
+                  <span className="glyphicon glyphicon-tint"></span>
+                </span>
+                <input ref="name" type="text" className="form-control"  placeholder="name" autofocus />
+              </div>
 
-                <div className="input-group input-group-md col-md-6 col-md-offset-3" style={{marginBottom: 10}}>
-                  <span className="input-group-addon">
-                    <span className="glyphicon glyphicon-map-marker"></span>
-                  </span>
-                  <input ref="location" type="text" id="location" className="form-control"  placeholder="location" autofocus />
-                </div>
+              <div className="input-group input-group-md col-md-6 col-md-offset-3" style={{marginBottom: 10}}>
+                <span className="input-group-addon">
+                  <span className="glyphicon glyphicon-map-marker"></span>
+                </span>
+                <input ref="location" type="text" id="location" className="form-control"  placeholder="location" autofocus />
+              </div>
 
                 <div className="input-group input-group-md col-md-6 col-md-offset-3" style={{marginBottom: 10}}>
                   <span className="input-group-addon">
@@ -63,7 +70,7 @@ const Create = React.createClass({
                   <input ref="description" type="text" className="form-control" placeholder="description" />
                 </div>
 
-                <button type="submit" className="btn" style={{marginTop: 10}}>Login
+                <button type="submit" className="btn" style={{marginTop: 10}}>Add it!
                   <span className="glyphicon glyphicon-ok" />
                 </button>
 

@@ -15,12 +15,25 @@ if(process.env.ENVIRONMENT === 'production'){
 const db = pgp(cn)
 
 function createToto(req,res,next){
+  var name = req.body.name;
   var location = req.body.location;
-  var geolocation
+  var comments = req.body.description;
+  var formattedAddress
+  var lat, lng
   geocoder.geocode(location, function ( err, data ) {
-    console.log(data);
+    formattedAddress = data.results[0].formatted_address
+    lat = data.results[0].geometry.location.lat
+    lng = data.results[0].geometry.location.lng
+    db.any('INSERT INTO privatetoto (name, location, latitude, longitude, comments) VALUES ($1,$2,$3,$4,$5) returning privatetoto_id', [name, formattedAddress, lat, lng, comments])
+      .then(function(data){
+        res.rows = data;
+        next();
+      })
+      .catch(function(error){
+        console.error('error inserting privatetoto: ', error);
+      })
+
   });
-  var description = req.body.description;
 }
 
 function publicToto(req,res,next){
