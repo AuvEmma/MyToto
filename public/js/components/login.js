@@ -28,6 +28,16 @@ const Login = React.createClass({
       if (location.state && location.state.nextPathname) {
         this.context.router.replace(location.state.nextPathname)
       } else {
+        var user_id = {
+        user_id: parseInt(localStorage.user_id)
+        }
+        $.post('/toto/private', user_id)
+          .done((data)=>{
+            localStorage.myToto = JSON.stringify(data)
+          })
+          .error((error)=>{
+            console.log('Error getting privat toto!', error);
+          })
         this.context.router.replace('/')
       }
     })

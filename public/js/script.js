@@ -37,16 +37,6 @@ const App = React.createClass({
     })
   },
   componentDidMount() {
-    var user_id = {
-    user_id: parseInt(localStorage.user_id)
-    }
-    $.post('/toto/private', user_id)
-      .done((data)=>{
-        localStorage.myToto = JSON.stringify(data)
-      })
-      .error((error)=>{
-        console.log('Error getting privat toto!', error);
-      })
     $.ajax({
       url   : '/toto/public',
       type  : 'GET',
