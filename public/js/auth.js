@@ -9,8 +9,10 @@ module.exports = {
       return
     }
     loginRequest(email, password, (res) => {
+      console.log(res, 'is login request res');
       if (res.authenticated) {
         localStorage.token = res.token
+        localStorage.user_id = res.user_id
         if (cb) cb(true)
         this.onChange(true)
       } else {
@@ -48,7 +50,8 @@ function loginRequest(email, password, cb) {
     .done((data) => {
       cb({
         authenticated: true,
-        token: data.token
+        token: data.token,
+        user_id: data.users.user_id
       })
     })
     .error((error) => {

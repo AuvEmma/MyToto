@@ -24,7 +24,7 @@ function createToto(req,res,next){
     formattedAddress = data.results[0].formatted_address
     lat = data.results[0].geometry.location.lat
     lng = data.results[0].geometry.location.lng
-    db.any('INSERT INTO privatetoto (name, location, latitude, longitude, comments) VALUES ($1,$2,$3,$4,$5) returning privatetoto_id', [name, formattedAddress, lat, lng, comments])
+    db.any('INSERT INTO privatetoto (name, location, latitude, longitude, comments) VALUES ($1,$2,$3,$4,$5) returning privatetoto_id, name, location, latitude, longitude, comments', [name, formattedAddress, lat, lng, comments])
       .then(function(data){
         res.rows = data;
         next();
@@ -39,7 +39,6 @@ function createToto(req,res,next){
 function publicToto(req,res,next){
   db.any(`select * from publictoto`)
     .then(function(data){
-      console.log(data);
       res.rows = data;
       next()
     })

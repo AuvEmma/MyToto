@@ -1,7 +1,6 @@
 const React = require('react');
 const auth = require('../auth');
 
-
 const Create = React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired
@@ -26,11 +25,10 @@ const Create = React.createClass({
       location: location,
       description: description
     }
-    console.log(newToto);
     $.post('/toto', newToto)
-      .done(
-
-      )
+      .done((data)=>{
+        localStorage.newToto = JSON.stringify(data)
+      })
       .error((error)=>{
         console.log('Error posting toto!');
       })

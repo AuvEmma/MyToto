@@ -114,7 +114,6 @@ function initMap() {
   setPublicMarker(map)
   function setPublicMarker(resultsMap){
     var addresses = JSON.parse(localStorage.publictoto)
-
     addresses.forEach((el)=>{
       var infowindow = new google.maps.InfoWindow;
       var contentString = '<div id="content">'+
