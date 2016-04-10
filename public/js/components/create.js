@@ -27,7 +27,7 @@ const Create = React.createClass({
     }
     $.post('/toto', newToto)
       .done((data)=>{
-        localStorage.newToto = JSON.stringify(data)
+        console.log(data);
       })
       .error((error)=>{
         console.log('Error posting toto!');

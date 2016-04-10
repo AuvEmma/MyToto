@@ -157,13 +157,10 @@ function initMap() {
       var contentString = '<div id="content">'+
       '<div id="siteNotice">'+
       '</div>'+
-      '<h3 id="firstHeading" class="firstHeading">'+el.name+'</h3>'+
+      '<h3 id="firstHeading" class="title full-width">'+el.name+'</h3>'+
       '<div id="bodyContent">'+
       '<ul class="list-group">' +
       '<li class="list-group-item">Location: '+el.location+ '</li><br>'+
-      '<li class="list-group-item">Open Yearround: '+el.open_yearround+ '</li><br>'+
-      '<li class="list-group-item">Handicap Accessible: '+el.handicap_accessible+ '</li><br>'+
-      '<li class="list-group-item">Borough: '+el.borough+ '</li><br>'+
       '<li class="list-group-item">Comment: '+el.comments+ '</li><br>'+
       '</ul>'+
       '</div>'+
