@@ -112,7 +112,9 @@ function initMap() {
     })
   }
   setPublicMarker(map)
-  setPrivateMarker(map)
+  if (localStorage.myToto){
+    setPrivateMarker(map)
+  }
   function setPublicMarker(resultsMap){
     var addresses = JSON.parse(localStorage.publictoto)
     addresses.forEach((el)=>{
