@@ -175,6 +175,14 @@ function initMap() {
         animation: google.maps.Animation.DROP,
         icon: '../img/pinkmarker.png'
       })
+      infowindow.setContent(contentString)
+      pmarker.addListener('click', function() {
+        infowindow.close()
+        infowindow.open(map, pmarker);
+      })
+      resultsMap.addListener('click', function(){
+        infowindow.close()
+      })
     })
   }
 
