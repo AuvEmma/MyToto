@@ -9,7 +9,6 @@ module.exports = {
       return
     }
     loginRequest(email, password, (res) => {
-      console.log(res, 'is login request res');
       if (res.authenticated) {
         localStorage.token = res.token
         localStorage.user_id = res.user_id

@@ -21,7 +21,8 @@ const Create = React.createClass({
     const description = this.refs.description.value
 
     const newToto = {
-      name : name,
+      user_id: localStorage.user_id,
+      name: name,
       location: location,
       description: description
     }

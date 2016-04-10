@@ -18,13 +18,14 @@ function createToto(req,res,next){
   var name = req.body.name;
   var location = req.body.location;
   var comments = req.body.description;
+  var user_id = req.body.user_id;
   var formattedAddress
   var lat, lng
   geocoder.geocode(location, function ( err, data ) {
     formattedAddress = data.results[0].formatted_address
     lat = data.results[0].geometry.location.lat
     lng = data.results[0].geometry.location.lng
-    db.any('INSERT INTO privatetoto (name, location, latitude, longitude, comments) VALUES ($1,$2,$3,$4,$5) returning privatetoto_id, name, location, latitude, longitude, comments', [name, formattedAddress, lat, lng, comments])
+    db.any('INSERT INTO privatetoto (name, location, latitude, longitude, comments, user_id) VALUES ($1,$2,$3,$4,$5,$6) returning privatetoto_id, name, location, latitude, longitude, comments', [name, formattedAddress, lat, lng, comments, user_id])
       .then(function(data){
         res.rows = data;
         next();
