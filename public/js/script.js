@@ -41,12 +41,12 @@ const App = React.createClass({
       url   : '/toto/public',
       type  : 'GET',
     })
-    .done((data)=>{
-      localStorage.publictoto = JSON.stringify(data)
-    })
-    .error((err)=>{
-      console.log(err);
-    })
+      .done((data)=>{
+        localStorage.publictoto = JSON.stringify(data)
+      })
+      .error((err)=>{
+        console.log('error getting public toto',err);
+      })
   },
   // executes on app load, assigns auth.onChange to equal this.updateAuth
   componentWillMount() {

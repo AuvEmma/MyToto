@@ -8,9 +8,10 @@ create table users(
 );
 
 CREATE TABLE privatetoto(
-  privatetoto_id        SERIAL PRIMARY KEY
+  privatetoto_id       SERIAL PRIMARY KEY
+  ,user_id             integer REFERENCES users(user_id)
   ,Name                VARCHAR not null
-  ,Location            VARCHAR 
+  ,Location            VARCHAR
   ,Latitude            NUMERIC not null
   ,Longitude           NUMERIC not null
   ,Open_YearRound      VARCHAR

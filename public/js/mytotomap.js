@@ -112,9 +112,6 @@ function initMap() {
     })
   }
   setPublicMarker(map)
-  if (localStorage.myToto){
-    setPrivateMarker(map)
-  }
   function setPublicMarker(resultsMap){
     var addresses = JSON.parse(localStorage.publictoto)
     addresses.forEach((el)=>{
@@ -139,38 +136,6 @@ function initMap() {
         position: latlng,
         animation: google.maps.Animation.DROP,
         icon: '../img/bluemarker.png'
-      })
-      infowindow.setContent(contentString)
-      pmarker.addListener('click', function() {
-        infowindow.close()
-        infowindow.open(map, pmarker);
-      })
-      resultsMap.addListener('click', function(){
-        infowindow.close()
-      })
-    })
-  }
-  function setPrivateMarker(resultsMap){
-    var addresses = JSON.parse(localStorage.myToto)
-    addresses.forEach((el)=>{
-      var infowindow = new google.maps.InfoWindow;
-      var contentString = '<div id="content">'+
-      '<div id="siteNotice">'+
-      '</div>'+
-      '<h3 id="firstHeading" class="title full-width">'+el.name+'</h3>'+
-      '<div id="bodyContent">'+
-      '<ul class="list-group">' +
-      '<li class="list-group-item">Location: '+el.location+ '</li><br>'+
-      '<li class="list-group-item">Comment: '+el.comments+ '</li><br>'+
-      '</ul>'+
-      '</div>'+
-      '</div>';
-      var latlng = new google.maps.LatLng(el.latitude, el.longitude);
-      var pmarker = new google.maps.Marker({
-        map: resultsMap,
-        position: latlng,
-        animation: google.maps.Animation.DROP,
-        icon: '../img/pinkmarker.png'
       })
       infowindow.setContent(contentString)
       pmarker.addListener('click', function() {

@@ -15,4 +15,8 @@ toto.route('/')
 toto.route('/public')
   .get( db.publicToto, (req,res)=>res.json(res.rows) )
 
+toto.route('/private')
+  .post( db.myToto, (req,res)=>res.json(res.rows) )
+
+
 module.exports = toto;

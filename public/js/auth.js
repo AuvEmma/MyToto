@@ -11,6 +11,7 @@ module.exports = {
     loginRequest(email, password, (res) => {
       if (res.authenticated) {
         localStorage.token = res.token
+        localStorage.user_id = res.user_id
         if (cb) cb(true)
         this.onChange(true)
       } else {
@@ -26,6 +27,8 @@ module.exports = {
 
   logout(cb) {
     delete localStorage.token
+    delete localStorage.user_id
+    delete localStorage.myToto
     if (cb) cb()
     this.onChange(false)
   },
@@ -48,7 +51,8 @@ function loginRequest(email, password, cb) {
     .done((data) => {
       cb({
         authenticated: true,
-        token: data.token
+        token: data.token,
+        user_id: data.users.user_id
       })
     })
     .error((error) => {
