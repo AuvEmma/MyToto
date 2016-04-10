@@ -32,7 +32,6 @@ const Login = React.createClass({
       }
     })
     $('#myLogin').modal('hide')
-
   },
   render : function() {
     return (

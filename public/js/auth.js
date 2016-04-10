@@ -27,6 +27,8 @@ module.exports = {
 
   logout(cb) {
     delete localStorage.token
+    delete localStorage.user_id
+    delete localStorage.myToto
     if (cb) cb()
     this.onChange(false)
   },

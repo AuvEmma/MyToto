@@ -48,5 +48,20 @@ function publicToto(req,res,next){
     })
 }
 
+function myToto(req,res,next){
+  var user_id = req.body.user_id;
+  db.any(`select * from privatetoto where user_id = $1`,[user_id])
+    .then(function(data){
+      // console.log(`select * from privatetoto where user_id = $1`, data);
+      res.rows = data;
+      next()
+    })
+    .catch(function(err){
+      console.error('error with select * from mytoto where user_id = $1', err);
+    })
+}
+
+
 module.exports.createToto = createToto;
 module.exports.publicToto = publicToto;
+module.exports.myToto = myToto;
