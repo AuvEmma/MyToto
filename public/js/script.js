@@ -18,10 +18,6 @@ const Link = require('react-router').Link;
 const auth = require('./auth');
 const GoogleMap = require('./components/googlemap.js');
 
-
-
-
-
 // initial state of the application
 const App = React.createClass({
   getInitialState() {
