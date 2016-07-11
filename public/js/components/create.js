@@ -28,6 +28,15 @@ const Create = React.createClass({
     $.post('/toto', newToto)
       .done((data)=>{
         console.log(data);
+        $.post('/toto/private', user_id)
+          .done((data)=>{
+            delete localStorage.myToto
+            localStorage.myToto = JSON.stringify(data)
+          })
+          .error((error)=>{
+            console.log('Error getting privat toto!', error);
+          })
+        this.context.router.replace('/')
       })
       .error((error)=>{
         console.log('Error posting toto!');
